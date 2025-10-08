@@ -1,0 +1,53 @@
+[project]
+name = "strands-ollama-ibm"
+version = "0.1.0"
+description = "Strands Agent using Ollama and IBM Granite model."
+authors = [{ name = "Gary Stafford", email = "gary.a.stafford@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "gradio>=5.49.0",
+    "strands-agents>=1.9.1",
+    "strands-agents-builder>=0.1.10",
+    "strands-agents-tools>=0.2.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=25.9.0",
+    "jupyter>=1.1.1",
+    "nbqa>=1.9.1",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.3.0",
+    "pytest>=7.3.1",
+    "pytest-cov>=4.1.0",
+    "types-requests>=2.30.0.0",
+]
+
+[tool.black]
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[dependency-groups]
+dev = [
+    "black[jupyter]>=25.9.0",
+    "jupyter>=1.1.1",
+    "nbqa>=1.9.1",
+]
